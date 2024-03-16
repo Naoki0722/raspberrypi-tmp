@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": ["source.organizeImports", "source.fixAll.eslint"],
+  "flake8.args": ["--config=.flake8"],
+  "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+      },
+  },
+  "black-formatter.args": [
+      "--line-length=100"
+  ],
+  "isort.args":["--settings-file", "pyproject.toml"],
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": [
+      "${workspaceFolder}/.venv/lib/site-packages"
+  ],
+  "prettier.requireConfig": true
+}
