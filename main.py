@@ -3,7 +3,7 @@ from src import Dht, Line
 
 def main():
     line = Line()
-    dht = Dht(14)
+    dht = Dht()
     line.send(dht.get_message())
 
 

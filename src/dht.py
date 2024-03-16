@@ -1,10 +1,10 @@
 import adafruit_dht
 import board
-
+import time
 
 class Dht:
-    def __init__(self, pin):
-        self.dhtDevice = adafruit_dht.DHT22(getattr(board, f"D{pin}"))
+    def __init__(self):
+        self.dhtDevice = adafruit_dht.DHT22(board.D14)
 
     def get_temperature(self):
         return self.dhtDevice.temperature
@@ -13,7 +13,9 @@ class Dht:
         return self.dhtDevice.humidity
 
     def get_message(self):
-        temperature_c = self.get_temperature()
-        humidity = self.get_humidity()
-        temperature_f = temperature_c * (9 / 5) + 32
-        return f"Temp: {temperature_f} F / {temperature_c} C    Humidity: {humidity}% "
+        return f"Temp: {self.get_temperature()} C ,Humidity: {self.get_humidity()}% "
+
+    def loop_info(self):
+        for _ in range(10):
+            print(self.get_message())
+            time.sleep(5)
